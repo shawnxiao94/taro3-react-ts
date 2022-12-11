@@ -21,8 +21,6 @@ fs.readdirSync(path.resolve(__dirname, srcPath)).forEach(f => {
   }
 })
 
-console.log(srcAlias)
-
 module.exports = {
   resolve: {
     alias: srcAlias

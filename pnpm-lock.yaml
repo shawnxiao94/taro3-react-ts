@@ -29,7 +29,9 @@ specifiers:
   '@typescript-eslint/parser': ^5.20.0
   babel-preset-taro: 3.5.8
   commitizen: ^4.2.6
+  cross-env: ^7.0.3
   cz-customizable: ^7.0.0
+  dotenv-flow: ^3.2.0
   eslint: ^8.12.0
   eslint-config-taro: 3.5.8
   eslint-plugin-import: ^2.12.0
@@ -78,7 +80,9 @@ devDependencies:
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.46.0_ha6vam6werchizxrnqvarmz2zu
   babel-preset-taro: registry.npmmirror.com/babel-preset-taro/3.5.8_bojq522x43gltlp3o2g2z3fkw4
   commitizen: registry.npmmirror.com/commitizen/4.2.6
+  cross-env: registry.npmmirror.com/cross-env/7.0.3
   cz-customizable: registry.npmmirror.com/cz-customizable/7.0.0
+  dotenv-flow: registry.npmmirror.com/dotenv-flow/3.2.0
   eslint: registry.npmmirror.com/eslint/8.29.0
   eslint-config-taro: registry.npmmirror.com/eslint-config-taro/3.5.8_obc23qs65rzt5guiiciw7rik2m
   eslint-plugin-import: registry.npmmirror.com/eslint-plugin-import/2.26.0_jx43xxcguvnqqmtmaaygwl7cmu
@@ -6029,6 +6033,16 @@ packages:
     version: 1.1.1
     dev: true
 
+  registry.npmmirror.com/cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cross-env/-/cross-env-7.0.3.tgz}
+    name: cross-env
+    version: 7.0.3
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: registry.npmmirror.com/cross-spawn/7.0.3
+    dev: true
+
   registry.npmmirror.com/cross-spawn-async/2.2.5:
     resolution: {integrity: sha512-snteb3aVrxYYOX9e8BabYFK9WhCDhTlw1YQktfTthBogxri4/2r9U2nQc0ffY73ZAxezDc+U8gvHAeU1wy1ubQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cross-spawn-async/-/cross-spawn-async-2.2.5.tgz}
     name: cross-spawn-async
@@ -6989,11 +7003,27 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  registry.npmmirror.com/dotenv-flow/3.2.0:
+    resolution: {integrity: sha512-GEB6RrR4AbqDJvNSFrYHqZ33IKKbzkvLYiD5eo4+9aFXr4Y4G+QaFrB/fNp0y6McWBmvaPn3ZNjIufnj8irCtg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dotenv-flow/-/dotenv-flow-3.2.0.tgz}
+    name: dotenv-flow
+    version: 3.2.0
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      dotenv: registry.npmmirror.com/dotenv/8.6.0
+    dev: true
+
   registry.npmmirror.com/dotenv/16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dotenv/-/dotenv-16.0.3.tgz}
     name: dotenv
     version: 16.0.3
     engines: {node: '>=12'}
+    dev: true
+
+  registry.npmmirror.com/dotenv/8.6.0:
+    resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dotenv/-/dotenv-8.6.0.tgz}
+    name: dotenv
+    version: 8.6.0
+    engines: {node: '>=10'}
     dev: true
 
   registry.npmmirror.com/download-git-repo/2.0.0:

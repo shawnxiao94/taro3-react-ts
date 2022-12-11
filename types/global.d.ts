@@ -1,3 +1,4 @@
+/* eslint-disable init-declarations */
 /* eslint-disable spaced-comment */
 /// <reference types="@tarojs/taro" />
 
@@ -17,3 +18,7 @@ declare namespace NodeJS {
     TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
   }
 }
+
+declare const APP_API: string
+declare const APP_NAME: string
+declare const APP_VERSION: string

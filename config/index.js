@@ -12,6 +12,7 @@ const config = {
   sourceRoot: 'src',
   outputRoot: `dist\\${process.env.TARO_ENV}`,
   plugins: [],
+  // 全局变量
   defineConstants: {},
   copy: {
     patterns: [],

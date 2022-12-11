@@ -467,7 +467,7 @@ module.exports = {
 ```
 
 ```
-yarn add cross-env dotenv-flow -D
+pnpm add cross-env dotenv-flow -D
 ```
 
 ## 三、图片处理

@@ -1,8 +1,22 @@
+/* eslint-disable camelcase */
+process.env.APP_ENV = process.env.APP_ENV || 'prod'
+
+require('dotenv-flow').config({
+  node_env: process.env.APP_ENV
+})
+
 module.exports = {
   env: {
     NODE_ENV: '"production"'
+    // APP_API: `"${process.env.APP_API}"`,
+    // APP_NAME: `"${process.env.APP_NAME}"`,
+    // APP_VERSION: `"${process.env.npm_package_version}"`
   },
-  defineConstants: {},
+  defineConstants: {
+    APP_API: `"${process.env.APP_API}"`,
+    APP_NAME: `"${process.env.APP_NAME}"`,
+    APP_VERSION: `"${process.env.npm_package_version}"`
+  },
   mini: {},
   h5: {
     /**

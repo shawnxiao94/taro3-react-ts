@@ -125,7 +125,6 @@
   },
   "powermode.shakeIntensity": 0,
   "powermode.enabled": true,
-  "editor.renderIndentGuides": false,
   //  #去掉代码结尾的分号
   "prettier.semi": false,
   //  #使用带引号替代双引号
@@ -190,5 +189,6 @@
     "vuex",
     "windi",
     "zxcvbn"
-  ]
+  ],
+  "editor.guides.indentation": false
 }
