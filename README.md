@@ -1,3 +1,62 @@
+#### 目录 
+
+```
+├─ dist                            // 编辑结果目录
+├─ config                          // taro编译配置目录
+│  ├─ dev.js                       // 开发环境配置
+│  ├─ index.js                     // 默认配置
+│  └─ prod.js                      // 生产环境配置
+├─ src                             // 源码目录
+│  ├─ apis                         // 全局接口
+│  ├─ assets                       // 需要打包的静态资源
+│  │  └─ iconfont                  // 字体图标
+│  │  └─ style                     // style/css
+│  │  └─ img                       // 图片
+│  ├─ components                   // 全局通用组件 
+│  ├─ constants                    // 全局常量
+│  ├─ pages                        // 页面文件目录
+│  │  └─ tab                       // tab-bar页面模块，后面小程序分包会讲到
+│  │  │  ├─ apis                   // tab-bar页面下的接口
+│  │  │  ├─ home                   // home页面
+│  │  │  │  ├─ index.config.ts     // 页面配置
+│  │  │  │  ├─ index.less          // 页面样式
+│  │  │  └─ └─ index.tsx           // 页面逻辑
+│  │  ├─ user                      // 个人中心页面模块
+│  │  │  ├─ apis                   // 个人中心下的接口
+│  │  │  ├─ settings               // 个人信息设置页
+│  │  │  └─ address                // 个人收获地址信息页
+│  │  ├─ order                     // 订单页面模块
+│  │  │  ├─ apis                   // 订单下的接口
+│  │  │  ├─ list                   // 订单列表页
+│  │  │  └─ detail                 // 订单详情页
+│  ├─ types                        // ts类型文件
+│  ├─ utils                        // 工具文件目录
+│  │  ├─ cookie.ts                 // cookie模块  
+│  │  ├─ https.ts                  // 网络请求模块
+│  │  └─ index.ts                  // 基础模块
+│  ├─ app.config.ts                // taro项目入口配置
+│  ├─ app.less                     // 项目总样式
+│  ├─ app.ts                       // 项目入口文件
+│  ├─ index.html                   // 
+├─ .editorconfig
+├─ .env                            // 开发环境环境变量
+├─ .env.pre                        // 预发环境环境变量
+├─ .env.prod                       // 生产环境环境变量
+├─ .env.test                       // 测试环境环境变量
+├─ .eslintrc.js                    // esLint规则配置
+├─ .gitignore                      // git忽略文件    
+├─ babel.config.js                 // Babel配置
+├─ tsconfig.json                   // ts配置文件
+├─ global.d.ts
+├─ iconfont.json                   // 图片处理配置文件
+├─ package.json 
+├─ project.config.json
+├─ project.tt.json
+└─ tsconfig.json
+
+
+```
+
 #### CLI 工具安装
 
 ```
@@ -459,9 +518,10 @@ require('dotenv-flow').config({
 
 module.exports = {
   env: {
-    APP_VERSION: process.env.npm_package_version,
-    APP_ENV: process.env.APP_ENV,
-    APP_API: process.env.APP_API
+    NODE_ENV: '"development"',
+    APP_VERSION: `"${process.env.npm_package_version}"`,
+    APP_ENV: `"${process.env.APP_ENV}"`,
+    APP_API: `"${process.env.APP_API}"`
   }
 }
 ```
@@ -649,3 +709,14 @@ export default {
   },
 };
 ```
+
+
+#### 集成reduxjs/toolkit
+ ```
+ // redux及工具包
+pnpm add @reduxjs/toolkit react-redux
+pnpm add @types/react-redux -D
+
+pnpm add @types/redux-logger redux-logger //日志包
+pnpm add redux-persist //数据缓存
+ ```

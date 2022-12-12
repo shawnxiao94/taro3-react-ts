@@ -1,4 +1,5 @@
-import Alias from './webpack.config'
+const Alias = require('./webpack.config')
+const ip = require('ip').address() // 获取本机ip
 
 const config = {
   projectName: 'taro3-react-ts',
@@ -74,6 +75,21 @@ const config = {
         config: {
           namingPattern: 'module', // 转换模式，取值为 global/module
           generateScopedName: '[name]__[local]___[hash:base64:5]'
+        }
+      }
+    },
+    devServer: {
+      host: ip ? ip : '0.0.0.0', // 以本机ip打开项目
+      historyApiFallback: true,
+      allowedHosts: 'all',
+      proxy: {
+        // 代理
+        '/api': {
+          target: 'http://192.168.2.87:8080', // 后端地址
+          changeOrigin: true,
+          pathRewrite: {
+            '^/api': ''
+          }
         }
       }
     }

@@ -7,16 +7,12 @@ require('dotenv-flow').config({
 
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
-    // APP_API: `"${process.env.APP_API}"`,
-    // APP_NAME: `"${process.env.APP_NAME}"`,
-    // APP_VERSION: `"${process.env.npm_package_version}"`
-  },
-  defineConstants: {
+    NODE_ENV: '"production"',
     APP_API: `"${process.env.APP_API}"`,
     APP_NAME: `"${process.env.APP_NAME}"`,
     APP_VERSION: `"${process.env.npm_package_version}"`
   },
+  defineConstants: {},
   mini: {},
   h5: {
     /**

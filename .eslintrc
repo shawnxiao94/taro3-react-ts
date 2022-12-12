@@ -40,6 +40,9 @@
     "no-multi-spaces": 1, // 禁止使用多个空格
     "radix": 1, // 强制在parseInt()使用基数参数
     "@typescript-eslint/no-unused-vars": ["error"], // 把该条提示信息转换成警告信息
+    "react/jsx-indent-props": [2, 2],
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     /**
      * 变量声明
      */
@@ -79,6 +82,9 @@
      */
     "vue/valid-v-model": 0,
     "import/no-commonjs": "off"
+  },
+  "parserOptions": {
+    "requireConfigFile": false // vscode下打开多少文件夹项目报错设置false解决
   },
   "settings": {
     // 让eslint自己检测react版本

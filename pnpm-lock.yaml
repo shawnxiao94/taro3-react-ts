@@ -6,6 +6,7 @@ specifiers:
   '@commitlint/cli': ^17.3.0
   '@commitlint/config-conventional': ^17.3.0
   '@pmmmwh/react-refresh-webpack-plugin': ^0.5.5
+  '@reduxjs/toolkit': ^1.9.1
   '@tarojs/cli': 3.5.8
   '@tarojs/components': 3.5.8
   '@tarojs/helper': 3.5.8
@@ -24,6 +25,7 @@ specifiers:
   '@tarojs/taro-h5': 3.5.8
   '@tarojs/webpack5-runner': 3.5.8
   '@types/react': ^18.0.0
+  '@types/react-redux': ^7.1.24
   '@types/webpack-env': ^1.13.6
   '@typescript-eslint/eslint-plugin': ^5.20.0
   '@typescript-eslint/parser': ^5.20.0
@@ -42,13 +44,16 @@ specifiers:
   prettier: ^2.8.1
   react: ^18.0.0
   react-dom: ^18.0.0
+  react-redux: ^8.0.5
   react-refresh: ^0.11.0
   stylelint: ^14.4.0
+  taro-iconfont-cli: ^3.3.0
   typescript: ^4.1.0
   webpack: 5.69.0
 
 dependencies:
   '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.20.6
+  '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
   '@tarojs/components': registry.npmmirror.com/@tarojs/components/3.5.8_@types+react@18.0.26
   '@tarojs/helper': registry.npmmirror.com/@tarojs/helper/3.5.8
   '@tarojs/plugin-framework-react': registry.npmmirror.com/@tarojs/plugin-framework-react/3.5.8_fveljtpmd6xw5kcaq7yf3ifhd4
@@ -66,6 +71,7 @@ dependencies:
   '@tarojs/taro-h5': registry.npmmirror.com/@tarojs/taro-h5/3.5.8_@types+react@18.0.26
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+  react-redux: registry.npmmirror.com/react-redux/8.0.5_ib3m5ricvtkl2cll7qpr2f6lvq
 
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.20.5
@@ -75,6 +81,7 @@ devDependencies:
   '@tarojs/cli': registry.npmmirror.com/@tarojs/cli/3.5.8_@types+react@18.0.26
   '@tarojs/webpack5-runner': registry.npmmirror.com/@tarojs/webpack5-runner/3.5.8_5w7ys72thaglpndtotex6h6uae
   '@types/react': registry.npmmirror.com/@types/react/18.0.26
+  '@types/react-redux': registry.npmmirror.com/@types/react-redux/7.1.24
   '@types/webpack-env': registry.npmmirror.com/@types/webpack-env/1.18.0
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.46.0_5mle7isnkfgjmrghnnczirv6iy
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.46.0_ha6vam6werchizxrnqvarmz2zu
@@ -93,6 +100,7 @@ devDependencies:
   prettier: registry.npmmirror.com/prettier/2.8.1
   react-refresh: registry.npmmirror.com/react-refresh/0.11.0
   stylelint: registry.npmmirror.com/stylelint/14.16.0
+  taro-iconfont-cli: registry.npmmirror.com/taro-iconfont-cli/3.3.0_d6n6q7sfhnidtuprm7rta37op4
   typescript: registry.npmmirror.com/typescript/4.9.4
   webpack: registry.npmmirror.com/webpack/5.69.0
 
@@ -2272,6 +2280,28 @@ packages:
       source-map: registry.npmmirror.com/source-map/0.7.4
       webpack: registry.npmmirror.com/webpack/5.69.0
 
+  registry.npmmirror.com/@reduxjs/toolkit/1.9.1_k4ae6lp43ej6mezo3ztvx6pykq:
+    resolution: {integrity: sha512-HikrdY+IDgRfRYlCTGUQaiCxxDDgM1mQrRbZ6S1HFZX5ZYuJ4o8EstNmhTwHdPl2rTmLxzwSu0b3AyeyTlR+RA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@reduxjs/toolkit/-/toolkit-1.9.1.tgz}
+    id: registry.npmmirror.com/@reduxjs/toolkit/1.9.1
+    name: '@reduxjs/toolkit'
+    version: 1.9.1
+    peerDependencies:
+      react: ^16.9.0 || ^17.0.0 || ^18
+      react-redux: ^7.2.1 || ^8.0.2
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-redux:
+        optional: true
+    dependencies:
+      immer: registry.npmmirror.com/immer/9.0.16
+      react: registry.npmmirror.com/react/18.2.0
+      react-redux: registry.npmmirror.com/react-redux/8.0.5_ib3m5ricvtkl2cll7qpr2f6lvq
+      redux: registry.npmmirror.com/redux/4.2.0
+      redux-thunk: registry.npmmirror.com/redux-thunk/2.4.2_redux@4.2.0
+      reselect: registry.npmmirror.com/reselect/4.1.7
+    dev: false
+
   registry.npmmirror.com/@sideway/address/4.1.4:
     resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@sideway/address/-/address-4.1.4.tgz}
     name: '@sideway/address'
@@ -3171,6 +3201,14 @@ packages:
       '@types/node': registry.npmmirror.com/@types/node/18.11.13
     dev: true
 
+  registry.npmmirror.com/@types/hoist-non-react-statics/3.3.1:
+    resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz}
+    name: '@types/hoist-non-react-statics'
+    version: 3.3.1
+    dependencies:
+      '@types/react': registry.npmmirror.com/@types/react/18.0.26
+      hoist-non-react-statics: registry.npmmirror.com/hoist-non-react-statics/3.3.2
+
   registry.npmmirror.com/@types/html-minifier-terser/6.1.0:
     resolution: {integrity: sha512-oh/6byDPnL1zeNXFrDXFLyZjkr1MsBG667IM792caf1L2UPOOMf65NFzjUH/ltyfwjAGfs1rsX1eftK0jC/KIg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/html-minifier-terser/-/html-minifier-terser-6.1.0.tgz}
     name: '@types/html-minifier-terser'
@@ -3294,6 +3332,17 @@ packages:
     version: 1.2.4
     dev: true
 
+  registry.npmmirror.com/@types/react-redux/7.1.24:
+    resolution: {integrity: sha512-7FkurKcS1k0FHZEtdbbgN8Oc6b+stGSfZYjQGicofJ0j4U0qIn/jaSvnP2pLwZKiai3/17xqqxkkrxTgN8UNbQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-redux/-/react-redux-7.1.24.tgz}
+    name: '@types/react-redux'
+    version: 7.1.24
+    dependencies:
+      '@types/hoist-non-react-statics': registry.npmmirror.com/@types/hoist-non-react-statics/3.3.1
+      '@types/react': registry.npmmirror.com/@types/react/18.0.26
+      hoist-non-react-statics: registry.npmmirror.com/hoist-non-react-statics/3.3.2
+      redux: registry.npmmirror.com/redux/4.2.0
+    dev: true
+
   registry.npmmirror.com/@types/react/18.0.26:
     resolution: {integrity: sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react/-/react-18.0.26.tgz}
     name: '@types/react'
@@ -3360,6 +3409,12 @@ packages:
     dependencies:
       '@types/node': registry.npmmirror.com/@types/node/18.11.13
     dev: true
+
+  registry.npmmirror.com/@types/use-sync-external-store/0.0.3:
+    resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz}
+    name: '@types/use-sync-external-store'
+    version: 0.0.3
+    dev: false
 
   registry.npmmirror.com/@types/vinyl/2.0.7:
     resolution: {integrity: sha512-4UqPv+2567NhMQuMLdKAyK4yzrfCqwaTt6bLhHEs8PFcxbHILsrxaY63n4wgE/BRLDWDQeI+WcTmkXKExh9hQg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/vinyl/-/vinyl-2.0.7.tgz}
@@ -4263,6 +4318,17 @@ packages:
     resolution: {integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/aws4/-/aws4-1.11.0.tgz}
     name: aws4
     version: 1.11.0
+    dev: true
+
+  registry.npmmirror.com/axios/0.19.2:
+    resolution: {integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/axios/-/axios-0.19.2.tgz}
+    name: axios
+    version: 0.19.2
+    deprecated: Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410
+    dependencies:
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.5.10
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.npmmirror.com/babel-code-frame/6.26.0:
@@ -5651,6 +5717,13 @@ packages:
     resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/colorette/-/colorette-2.0.19.tgz}
     name: colorette
     version: 2.0.19
+    dev: true
+
+  registry.npmmirror.com/colors/1.4.0:
+    resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/colors/-/colors-1.4.0.tgz}
+    name: colors
+    version: 1.4.0
+    engines: {node: '>=0.1.90'}
     dev: true
 
   registry.npmmirror.com/combined-stream/1.0.8:
@@ -8628,6 +8701,17 @@ packages:
         optional: true
     dev: true
 
+  registry.npmmirror.com/follow-redirects/1.5.10:
+    resolution: {integrity: sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.5.10.tgz}
+    name: follow-redirects
+    version: 1.5.10
+    engines: {node: '>=4.0'}
+    dependencies:
+      debug: registry.npmmirror.com/debug/3.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/for-in/1.0.2:
     resolution: {integrity: sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/for-in/-/for-in-1.0.2.tgz}
     name: for-in
@@ -9389,6 +9473,13 @@ packages:
     name: hls.js
     version: 1.2.9
 
+  registry.npmmirror.com/hoist-non-react-statics/3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz}
+    name: hoist-non-react-statics
+    version: 3.3.2
+    dependencies:
+      react-is: registry.npmmirror.com/react-is/16.13.1
+
   registry.npmmirror.com/home-or-tmp/2.0.0:
     resolution: {integrity: sha512-ycURW7oUxE2sNiPVw1HVEFsW+ecOpJ5zaj7eC0RlwhibhRBod20muUN8qu/gzx956YrLolVvs1MTXwKgC2rVEg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz}
     name: home-or-tmp
@@ -9640,6 +9731,19 @@ packages:
     hasBin: true
     dev: true
 
+  registry.npmmirror.com/iconfont-parser/1.0.0:
+    resolution: {integrity: sha512-3RJceYHEjaqYyeDdfSAb1vP1x1Eb7ZtC9Xwetj+axm85sBlJU7HMvdNLVpwm/3g5eghYOdkQK+epUITZGAIqKQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/iconfont-parser/-/iconfont-parser-1.0.0.tgz}
+    name: iconfont-parser
+    version: 1.0.0
+    dependencies:
+      axios: registry.npmmirror.com/axios/0.19.2
+      colors: registry.npmmirror.com/colors/1.4.0
+      tslib: registry.npmmirror.com/tslib/1.14.1
+      xml2js: registry.npmmirror.com/xml2js/0.4.23
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.4.24.tgz}
     name: iconv-lite
@@ -9700,6 +9804,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  registry.npmmirror.com/immer/9.0.16:
+    resolution: {integrity: sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/immer/-/immer-9.0.16.tgz}
+    name: immer
+    version: 9.0.16
+    dev: false
 
   registry.npmmirror.com/immutable/4.1.0:
     resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/immutable/-/immutable-4.1.0.tgz}
@@ -11805,6 +11915,24 @@ packages:
     dependencies:
       schema-utils: registry.npmmirror.com/schema-utils/4.0.0
       webpack: registry.npmmirror.com/webpack/5.69.0
+    dev: true
+
+  registry.npmmirror.com/mini-program-iconfont-cli/0.6.1:
+    resolution: {integrity: sha512-69FsU+tSevwmHBiL55535Hfh1q0ciRpNyYtiTBZw2bvw9lvW3N/SCTg395P0rkisWMqf1Ki9VYIWeaONvNWy2Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mini-program-iconfont-cli/-/mini-program-iconfont-cli-0.6.1.tgz}
+    name: mini-program-iconfont-cli
+    version: 0.6.1
+    hasBin: true
+    dependencies:
+      axios: registry.npmmirror.com/axios/0.19.2
+      colors: registry.npmmirror.com/colors/1.4.0
+      fs-extra: registry.npmmirror.com/fs-extra/8.1.0
+      glob: registry.npmmirror.com/glob/7.2.3
+      minimist: registry.npmmirror.com/minimist/1.2.7
+      mkdirp: registry.npmmirror.com/mkdirp/0.5.6
+      tslib: registry.npmmirror.com/tslib/1.14.1
+      xml2js: registry.npmmirror.com/xml2js/0.4.23
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.npmmirror.com/minimalistic-assert/1.0.1:
@@ -13928,10 +14056,59 @@ packages:
       scheduler: registry.npmmirror.com/scheduler/0.23.0
     dev: false
 
+  registry.npmmirror.com/react-iconfont-cli/2.0.2_react@18.2.0:
+    resolution: {integrity: sha512-43NP+dsk08XwJf8oXfrDwHk1WeE76vy1Xzbd2zz7WjjxsdblF9h/oalFMPclZSibIirwsckz3L0IV+42Yu//iQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-iconfont-cli/-/react-iconfont-cli-2.0.2.tgz}
+    id: registry.npmmirror.com/react-iconfont-cli/2.0.2
+    name: react-iconfont-cli
+    version: 2.0.2
+    hasBin: true
+    peerDependencies:
+      react: '*'
+    dependencies:
+      colors: registry.npmmirror.com/colors/1.4.0
+      glob: registry.npmmirror.com/glob/7.2.3
+      iconfont-parser: registry.npmmirror.com/iconfont-parser/1.0.0
+      lodash: registry.npmmirror.com/lodash/4.17.21
+      minimist: registry.npmmirror.com/minimist/1.2.7
+      mkdirp: registry.npmmirror.com/mkdirp/0.5.6
+      react: registry.npmmirror.com/react/18.2.0
+      tslib: registry.npmmirror.com/tslib/1.14.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz}
     name: react-is
     version: 16.13.1
+
+  registry.npmmirror.com/react-is/18.2.0:
+    resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-is/-/react-is-18.2.0.tgz}
+    name: react-is
+    version: 18.2.0
+    dev: false
+
+  registry.npmmirror.com/react-native-iconfont-cli/2.2.4_react@18.2.0:
+    resolution: {integrity: sha512-qTjfHG2f/sc3/YKWZJvIJk/SwiTu8C9/SvtoLxRX+GM/6pvOJq0ge6rcV3vTh4s3QJDuNDOD6+a4hGD6vv2vSg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-native-iconfont-cli/-/react-native-iconfont-cli-2.2.4.tgz}
+    id: registry.npmmirror.com/react-native-iconfont-cli/2.2.4
+    name: react-native-iconfont-cli
+    version: 2.2.4
+    hasBin: true
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+      react-native-svg: '>=9.7.0'
+    dependencies:
+      colors: registry.npmmirror.com/colors/1.4.0
+      glob: registry.npmmirror.com/glob/7.2.3
+      iconfont-parser: registry.npmmirror.com/iconfont-parser/1.0.0
+      lodash: registry.npmmirror.com/lodash/4.17.21
+      minimist: registry.npmmirror.com/minimist/1.2.7
+      mkdirp: registry.npmmirror.com/mkdirp/0.5.6
+      react: registry.npmmirror.com/react/18.2.0
+      tslib: registry.npmmirror.com/tslib/1.14.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.npmmirror.com/react-reconciler/0.27.0_react@18.2.0:
@@ -13946,6 +14123,41 @@ packages:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
       react: registry.npmmirror.com/react/18.2.0
       scheduler: registry.npmmirror.com/scheduler/0.21.0
+    dev: false
+
+  registry.npmmirror.com/react-redux/8.0.5_ib3m5ricvtkl2cll7qpr2f6lvq:
+    resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-redux/-/react-redux-8.0.5.tgz}
+    id: registry.npmmirror.com/react-redux/8.0.5
+    name: react-redux
+    version: 8.0.5
+    peerDependencies:
+      '@types/react': ^16.8 || ^17.0 || ^18.0
+      '@types/react-dom': ^16.8 || ^17.0 || ^18.0
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+      react-native: '>=0.59'
+      redux: ^4
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+      redux:
+        optional: true
+    dependencies:
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.20.6
+      '@types/hoist-non-react-statics': registry.npmmirror.com/@types/hoist-non-react-statics/3.3.1
+      '@types/react': registry.npmmirror.com/@types/react/18.0.26
+      '@types/use-sync-external-store': registry.npmmirror.com/@types/use-sync-external-store/0.0.3
+      hoist-non-react-statics: registry.npmmirror.com/hoist-non-react-statics/3.3.2
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-is: registry.npmmirror.com/react-is/18.2.0
+      use-sync-external-store: registry.npmmirror.com/use-sync-external-store/1.2.0_react@18.2.0
     dev: false
 
   registry.npmmirror.com/react-refresh/0.11.0:
@@ -13968,7 +14180,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-    dev: false
 
   registry.npmmirror.com/read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/read-cache/-/read-cache-1.0.0.tgz}
@@ -14093,6 +14304,24 @@ packages:
       indent-string: registry.npmmirror.com/indent-string/4.0.0
       strip-indent: registry.npmmirror.com/strip-indent/3.0.0
     dev: true
+
+  registry.npmmirror.com/redux-thunk/2.4.2_redux@4.2.0:
+    resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-thunk/-/redux-thunk-2.4.2.tgz}
+    id: registry.npmmirror.com/redux-thunk/2.4.2
+    name: redux-thunk
+    version: 2.4.2
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: registry.npmmirror.com/redux/4.2.0
+    dev: false
+
+  registry.npmmirror.com/redux/4.2.0:
+    resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux/-/redux-4.2.0.tgz}
+    name: redux
+    version: 4.2.0
+    dependencies:
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.20.6
 
   registry.npmmirror.com/regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerate-unicode-properties/-/regenerate-unicode-properties-10.1.0.tgz}
@@ -14372,6 +14601,12 @@ packages:
     name: requires-port
     version: 1.0.0
     dev: true
+
+  registry.npmmirror.com/reselect/4.1.7:
+    resolution: {integrity: sha512-Zu1xbUt3/OPwsXL46hvOOoQrap2azE7ZQbokq61BQfiXvhewsKDwhMeZjTX9sX0nvw1t/U5Audyn1I9P/m9z0A==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/reselect/-/reselect-4.1.7.tgz}
+    name: reselect
+    version: 4.1.7
+    dev: false
 
   registry.npmmirror.com/resolve-dir/1.0.1:
     resolution: {integrity: sha512-R7uiTjECzvOsWSfdM0QKFNBVFcK27aHOUwdvK53BcW8zqnGdYp0Fbj82cy54+2A4P2tFM22J5kRfe1R+lM/1yg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/resolve-dir/-/resolve-dir-1.0.1.tgz}
@@ -15964,6 +16199,32 @@ packages:
       postcss-value-parser: registry.npmmirror.com/postcss-value-parser/3.3.1
     dev: true
 
+  registry.npmmirror.com/taro-iconfont-cli/3.3.0_d6n6q7sfhnidtuprm7rta37op4:
+    resolution: {integrity: sha512-lkZE/zaL0J3a6ymlUp1sMBiM8krJkDh0ZsrzB5FM2IGdgQO1/4Vs7N2hzTEVZ7EZoV/6hBqL0YwzTXg4MpuJMg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/taro-iconfont-cli/-/taro-iconfont-cli-3.3.0.tgz}
+    id: registry.npmmirror.com/taro-iconfont-cli/3.3.0
+    name: taro-iconfont-cli
+    version: 3.3.0
+    hasBin: true
+    peerDependencies:
+      '@tarojs/taro': ^3.0.8
+    dependencies:
+      '@tarojs/taro': registry.npmmirror.com/@tarojs/taro/3.5.8_@types+react@18.0.26
+      colors: registry.npmmirror.com/colors/1.4.0
+      fs-extra: registry.npmmirror.com/fs-extra/8.1.0
+      iconfont-parser: registry.npmmirror.com/iconfont-parser/1.0.0
+      mini-program-iconfont-cli: registry.npmmirror.com/mini-program-iconfont-cli/0.6.1
+      minimist: registry.npmmirror.com/minimist/1.2.7
+      mkdirp: registry.npmmirror.com/mkdirp/0.5.6
+      react-iconfont-cli: registry.npmmirror.com/react-iconfont-cli/2.0.2_react@18.2.0
+      react-native-iconfont-cli: registry.npmmirror.com/react-native-iconfont-cli/2.2.4_react@18.2.0
+      tslib: registry.npmmirror.com/tslib/2.4.1
+    transitivePeerDependencies:
+      - react
+      - react-native
+      - react-native-svg
+      - supports-color
+    dev: true
+
   registry.npmmirror.com/temp/0.9.4:
     resolution: {integrity: sha512-yYrrsWnrXMcdsnu/7YMYAofM1ktpL5By7vZhf15CrXijWWrEYZks5AXBudalfSWJLlnen/QUJUB5aoB0kqZUGA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/temp/-/temp-0.9.4.tgz}
     name: temp
@@ -16658,6 +16919,17 @@ packages:
     version: 1.0.1
     engines: {node: '>= 4'}
     dev: true
+
+  registry.npmmirror.com/use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz}
+    id: registry.npmmirror.com/use-sync-external-store/1.2.0
+    name: use-sync-external-store
+    version: 1.2.0
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: registry.npmmirror.com/react/18.2.0
+    dev: false
 
   registry.npmmirror.com/use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/use/-/use-3.1.1.tgz}

@@ -1,7 +1,3 @@
-export const testFn = () => {
-  // 测试环境变量
-  console.log('APP_API', APP_API, APP_NAME, APP_VERSION)
-}
 /**
  * 将对象解析成url参数
  * @param {*} obj
