@@ -55,11 +55,13 @@
     "@tarojs/shared": "3.5.8",
     "@tarojs/taro": "3.5.8",
     "@tarojs/taro-h5": "3.5.8",
+    "classnames": "^2.3.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.5",
     "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "taro-ui": "3.1.0-beta.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

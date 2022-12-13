@@ -7,6 +7,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage/session' // 会话存储
 
 // 多个Slice的引入
+import tabBarSlice from './tabBar'
 import userSlice from './user'
 import demoSlice from './demo'
 
@@ -20,6 +21,7 @@ const persistConfig = {
 
 // 合并多个Slice
 const rootReducer = combineReducers({
+  tabBar: tabBarSlice,
   user: userSlice,
   demo: demoSlice
 })

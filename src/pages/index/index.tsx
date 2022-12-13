@@ -1,4 +1,6 @@
 import { View, Text, Button } from '@tarojs/components'
+// 1.使用taro自带的生命周期函数
+import { useDidShow } from '@tarojs/taro'
 import './index.scss'
 
 import Skeleton from '@/components/Skeleton'
@@ -7,11 +9,18 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeVal, loadUserInfo } from '@/store/user'
 
+import TabBar from '@/components/TabBar'
+
+import { setTabBar } from '@/store/tabBar'
+
 // 注意函数命名得为首字母大写
 const Index = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState<boolean>(false)
   const dispatch = useDispatch()
+  // 通过useDispatch 派发事件
+  // 修改current为对应tabbar值，my页面索引为1
+  dispatch(setTabBar(0))
   // 使用state中的数据
   const sortList = useSelector((state: any) => state.user.sortList)
   const handleGetUserInfo = () => {
@@ -27,6 +36,11 @@ const Index = () => {
       ])
     )
   }
+
+  useDidShow(() => {
+    console.log('页面展示时的回调 ')
+  })
+
   useEffect(() => {
     setLoading(true)
 
@@ -52,6 +66,7 @@ const Index = () => {
           </View>
         </View>
       </View>
+      <TabBar></TabBar>
     </View>
   )
 }

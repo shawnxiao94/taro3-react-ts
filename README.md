@@ -720,3 +720,122 @@ pnpm add @types/react-redux -D
 pnpm add @types/redux-logger redux-logger -D //日志包
 pnpm add redux-persist //数据缓存
  ```
+
+ 4.3 生命周期函数
+ ```
+//1.使用taro自带的
+import  {useDidShow} from "@tarojs/taro";
+useDidShow (() => {
+    console.log('页面展示时的回调 ')
+})
+//2.使用react的hooks
+import {useEffect} from 'react'
+useEffect(() => {
+    console.log('页面加载、更新、卸载的回调 ')
+})
+ ```
+
+ 4.4 路由导航
+
+ ```
+Taro.switchTab  //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+Taro.reLaunch	//关闭所有页面，打开到应用内的某个页面
+Taro.redirectTo	//关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。
+Taro.navigateTo //保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。 
+Taro.navigateBack //关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages 获取当前的页面栈，决定需要返回几层。
+EventChannel	//触发一个事件
+ ```
+
+ 4.4.1 路由跳转
+
+ ```
+//1.在app.config.ts中配置页面路由
+pages: [
+    'pages/demo/demo'
+  ],
+
+
+
+  //2.在组件中实现跳转
+Taro.navigateTo({
+    url:"/pages/demo/demo",
+    success(){
+        console.log('跳转成功')
+    }
+})
+ ```
+
+ 4.4.2 路由传参
+
+ ```
+Taro.navigateTo({
+    url:"/pages/demo/demo?id=2&age=18",
+    success(){
+        console.log('跳转成功')
+    }
+})
+
+
+//接受传过来的参数
+ const Param: any = getCurrentInstance()?.router?.params;
+ useDidShow(() => {
+     console.log(Param)
+ })
+ ```
+
+ 4.6 常用api
+
+ ```
+useReachBottom		//上拉触底加载
+usePullDownRefresh	//下拉刷新
+
+usePullDownRefresh(() => {
+    console.log('usePullDownRefresh')
+})
+ ```
+ 4.6.1 界面交互
+
+ ```
+ Taro.showToast({
+  title: '成功',
+  icon: 'success',
+})
+ ```
+
+ #### Taro-ui使用
+
+ Taro 3 只能配合使用 taro-ui@next 版本
+ ```
+npm i taro-ui@next
+ ```
+
+ 在 taro 项目的 config/index.js 中新增如下配置项：
+
+ ```
+h5: {
+  esnextModules: ['taro-ui']
+}
+ ```
+
+ 组件中使用
+
+ ```
+
+import { AtButton } from 'taro-ui'
+import 'taro-ui/dist/style/index.scss'
+render () {
+    return (
+      <View className='index'>
+         <AtButton type='primary'>按钮</AtButton>
+      </View>
+    )
+  }
+ ```
+
+ Icon
+
+ ```
+import "taro-ui/dist/style/components/icon.scss";
+
+<View className="at-icon at-icon-chevron-right" />
+ ```

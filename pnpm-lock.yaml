@@ -31,6 +31,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.20.0
   '@typescript-eslint/parser': ^5.20.0
   babel-preset-taro: 3.5.8
+  classnames: ^2.3.2
   commitizen: ^4.2.6
   cross-env: ^7.0.3
   cz-customizable: ^7.0.0
@@ -51,6 +52,7 @@ specifiers:
   redux-persist: ^6.0.0
   stylelint: ^14.4.0
   taro-iconfont-cli: ^3.3.0
+  taro-ui: 3.1.0-beta.4
   typescript: ^4.1.0
   webpack: 5.69.0
 
@@ -72,11 +74,13 @@ dependencies:
   '@tarojs/shared': registry.npmmirror.com/@tarojs/shared/3.5.8
   '@tarojs/taro': registry.npmmirror.com/@tarojs/taro/3.5.8_@types+react@18.0.26
   '@tarojs/taro-h5': registry.npmmirror.com/@tarojs/taro-h5/3.5.8_@types+react@18.0.26
+  classnames: registry.npmmirror.com/classnames/2.3.2
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
   react-redux: registry.npmmirror.com/react-redux/8.0.5_ib3m5ricvtkl2cll7qpr2f6lvq
   redux-logger: registry.npmmirror.com/redux-logger/3.0.6
   redux-persist: registry.npmmirror.com/redux-persist/6.0.0_react@18.2.0
+  taro-ui: registry.npmmirror.com/taro-ui/3.1.0-beta.4_v4dtvixbhtb446j4aftovavi44
 
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.20.5
@@ -6533,6 +6537,12 @@ packages:
       whatwg-mimetype: registry.npmmirror.com/whatwg-mimetype/2.3.0
       whatwg-url: registry.npmmirror.com/whatwg-url/7.1.0
     dev: true
+
+  registry.npmmirror.com/dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dayjs/-/dayjs-1.11.7.tgz}
+    name: dayjs
+    version: 1.11.7
+    dev: false
 
   registry.npmmirror.com/de-indent/1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/de-indent/-/de-indent-1.0.2.tgz}
@@ -13915,7 +13925,6 @@ packages:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
       object-assign: registry.npmmirror.com/object-assign/4.1.1
       react-is: registry.npmmirror.com/react-is/16.13.1
-    dev: true
 
   registry.npmmirror.com/proto-list/1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/proto-list/-/proto-list-1.2.4.tgz}
@@ -14108,6 +14117,14 @@ packages:
     version: 18.2.0
     dev: false
 
+  registry.npmmirror.com/react-native-animatable/1.3.3:
+    resolution: {integrity: sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz}
+    name: react-native-animatable
+    version: 1.3.3
+    dependencies:
+      prop-types: registry.npmmirror.com/prop-types/15.8.1
+    dev: false
+
   registry.npmmirror.com/react-native-iconfont-cli/2.2.4_react@18.2.0:
     resolution: {integrity: sha512-qTjfHG2f/sc3/YKWZJvIJk/SwiTu8C9/SvtoLxRX+GM/6pvOJq0ge6rcV3vTh4s3QJDuNDOD6+a4hGD6vv2vSg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-native-iconfont-cli/-/react-native-iconfont-cli-2.2.4.tgz}
     id: registry.npmmirror.com/react-native-iconfont-cli/2.2.4
@@ -14130,6 +14147,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  registry.npmmirror.com/react-native-modal/13.0.1_react@18.2.0:
+    resolution: {integrity: sha512-UB+mjmUtf+miaG/sDhOikRfBOv0gJdBU2ZE1HtFWp6UixW9jCk/bhGdHUgmZljbPpp0RaO/6YiMmQSSK3kkMaw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-native-modal/-/react-native-modal-13.0.1.tgz}
+    id: registry.npmmirror.com/react-native-modal/13.0.1
+    name: react-native-modal
+    version: 13.0.1
+    peerDependencies:
+      react: '*'
+      react-native: '>=0.65.0'
+    dependencies:
+      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      react: registry.npmmirror.com/react/18.2.0
+      react-native-animatable: registry.npmmirror.com/react-native-animatable/1.3.3
+    dev: false
 
   registry.npmmirror.com/react-reconciler/0.27.0_react@18.2.0:
     resolution: {integrity: sha512-HmMDKciQjYmBRGuuhIaKA1ba/7a+UsM5FzOZsMO2JYHt9Jh8reCb7j1eDC95NOyUlKM9KRyvdx0flBuDvYSBoA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/react-reconciler/-/react-reconciler-0.27.0.tgz}
@@ -16267,6 +16298,30 @@ packages:
       - react-native-svg
       - supports-color
     dev: true
+
+  registry.npmmirror.com/taro-ui/3.1.0-beta.4_v4dtvixbhtb446j4aftovavi44:
+    resolution: {integrity: sha512-8VqX2AI2xTHR1Hw28ZzYB61Hw1cVDcSLj0IBtzdF1aWOkl/5VeFPJsCwndajBhEe+mAMKcmEFMvpBDbz3ejCqg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/taro-ui/-/taro-ui-3.1.0-beta.4.tgz}
+    id: registry.npmmirror.com/taro-ui/3.1.0-beta.4
+    name: taro-ui
+    version: 3.1.0-beta.4
+    peerDependencies:
+      '@tarojs/components': '>=3'
+      '@tarojs/react': '>=3'
+      react: '>=16.13.0'
+      react-dom: '>=16.13.0'
+    dependencies:
+      '@tarojs/components': registry.npmmirror.com/@tarojs/components/3.5.8_@types+react@18.0.26
+      '@tarojs/react': registry.npmmirror.com/@tarojs/react/3.5.8_react@18.2.0
+      classnames: registry.npmmirror.com/classnames/2.3.2
+      dayjs: registry.npmmirror.com/dayjs/1.11.7
+      lodash: registry.npmmirror.com/lodash/4.17.21
+      prop-types: registry.npmmirror.com/prop-types/15.8.1
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-native-modal: registry.npmmirror.com/react-native-modal/13.0.1_react@18.2.0
+    transitivePeerDependencies:
+      - react-native
+    dev: false
 
   registry.npmmirror.com/temp/0.9.4:
     resolution: {integrity: sha512-yYrrsWnrXMcdsnu/7YMYAofM1ktpL5By7vZhf15CrXijWWrEYZks5AXBudalfSWJLlnen/QUJUB5aoB0kqZUGA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/temp/-/temp-0.9.4.tgz}
