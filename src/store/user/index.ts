@@ -4,6 +4,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 //   findUserInfo
 // } from '@/service/api'
 
+// thunk函数允许执行异步逻辑, 通常用于发出异步请求。
+// createAsyncThunk 创建一个异步action，方法触发的时候会有三种状态：
+// pending（进行中）、fulfilled（成功）、rejected（失败）
 // 异步方式一
 export const loadUserInfo = createAsyncThunk('user/fetchUserInfo', (data, thunkAPI) => {
   // thunkAPI：一个对象，其中包含通常传递给 Redux thunk 函数的所有参数，以及其他选项(参考：https://redux-toolkit.js.org/api/createAsyncThunk#payloadcreator)
@@ -51,16 +54,20 @@ export const userSlice = createSlice({
       console.log('userInfo:', JSON.parse(JSON.stringify(state)), state, action)
     }
   }
+
+  // extraReducers 字段让 slice 处理在别处定义的 actions，
+  // 包括由 createAsyncThunk 或其他slice生成的actions。
   // extraReducers: builder => {
   //   // 异步 actions 中触发与其他 slice 中数据的关联改变
   //   builder.addCase(userInfo.pending, state => {
-  //     console.log('pending', state)
+  //     console.log('🚀 ~ 进行中！pending', state)
   //   })
   //   builder.addCase(userInfo.fulfilled, (state, { payload }) => {
   //     state.count = payload.data.count
+  //      console.log('🚀 ~ fulfilled', payload)
   //   })
   //   builder.addCase(userInfo.rejected, (state, err) => {
-  //     console.log(state, err)
+  //     console.log('🚀 ~ rejected',state, err)
   //   })
   // }
 })

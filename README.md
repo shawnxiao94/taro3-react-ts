@@ -717,6 +717,6 @@ export default {
 pnpm add @reduxjs/toolkit react-redux
 pnpm add @types/react-redux -D
 
-pnpm add @types/redux-logger redux-logger //日志包
+pnpm add @types/redux-logger redux-logger -D //日志包
 pnpm add redux-persist //数据缓存
  ```

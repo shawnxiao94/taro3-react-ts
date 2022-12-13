@@ -26,6 +26,7 @@ specifiers:
   '@tarojs/webpack5-runner': 3.5.8
   '@types/react': ^18.0.0
   '@types/react-redux': ^7.1.24
+  '@types/redux-logger': ^3.0.9
   '@types/webpack-env': ^1.13.6
   '@typescript-eslint/eslint-plugin': ^5.20.0
   '@typescript-eslint/parser': ^5.20.0
@@ -46,6 +47,8 @@ specifiers:
   react-dom: ^18.0.0
   react-redux: ^8.0.5
   react-refresh: ^0.11.0
+  redux-logger: ^3.0.6
+  redux-persist: ^6.0.0
   stylelint: ^14.4.0
   taro-iconfont-cli: ^3.3.0
   typescript: ^4.1.0
@@ -72,6 +75,8 @@ dependencies:
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
   react-redux: registry.npmmirror.com/react-redux/8.0.5_ib3m5ricvtkl2cll7qpr2f6lvq
+  redux-logger: registry.npmmirror.com/redux-logger/3.0.6
+  redux-persist: registry.npmmirror.com/redux-persist/6.0.0_react@18.2.0
 
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.20.5
@@ -82,6 +87,7 @@ devDependencies:
   '@tarojs/webpack5-runner': registry.npmmirror.com/@tarojs/webpack5-runner/3.5.8_5w7ys72thaglpndtotex6h6uae
   '@types/react': registry.npmmirror.com/@types/react/18.0.26
   '@types/react-redux': registry.npmmirror.com/@types/react-redux/7.1.24
+  '@types/redux-logger': registry.npmmirror.com/@types/redux-logger/3.0.9
   '@types/webpack-env': registry.npmmirror.com/@types/webpack-env/1.18.0
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.46.0_5mle7isnkfgjmrghnnczirv6iy
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.46.0_ha6vam6werchizxrnqvarmz2zu
@@ -3351,6 +3357,14 @@ packages:
       '@types/prop-types': registry.npmmirror.com/@types/prop-types/15.7.5
       '@types/scheduler': registry.npmmirror.com/@types/scheduler/0.16.2
       csstype: registry.npmmirror.com/csstype/3.1.1
+
+  registry.npmmirror.com/@types/redux-logger/3.0.9:
+    resolution: {integrity: sha512-cwYhVbYNgH01aepeMwhd0ABX6fhVB2rcQ9m80u8Fl50ZODhsZ8RhQArnLTkE7/Zrfq4Sz/taNoF7DQy9pCZSKg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/redux-logger/-/redux-logger-3.0.9.tgz}
+    name: '@types/redux-logger'
+    version: 3.0.9
+    dependencies:
+      redux: registry.npmmirror.com/redux/4.2.0
+    dev: true
 
   registry.npmmirror.com/@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/responselike/-/responselike-1.0.0.tgz}
@@ -6678,6 +6692,12 @@ packages:
     name: dedent
     version: 0.7.0
     dev: true
+
+  registry.npmmirror.com/deep-diff/0.3.8:
+    resolution: {integrity: sha512-yVn6RZmHiGnxRKR9sJb3iVV2XTF1Ghh2DiWRZ3dMnGc43yUdWWF/kX6lQyk3+P84iprfWKU/8zFTrlkvtFm1ug==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/deep-diff/-/deep-diff-0.3.8.tgz}
+    name: deep-diff
+    version: 0.3.8
+    dev: false
 
   registry.npmmirror.com/deep-equal/1.1.1:
     resolution: {integrity: sha512-yd9c5AdiqVcR+JjcwUQb9DkhJc8ngNr0MahEBGvDiJw8puWab2yZlh+nkasOnZP+EGTAP6rRp2JzJhJZzvNF8g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/deep-equal/-/deep-equal-1.1.1.tgz}
@@ -14304,6 +14324,29 @@ packages:
       indent-string: registry.npmmirror.com/indent-string/4.0.0
       strip-indent: registry.npmmirror.com/strip-indent/3.0.0
     dev: true
+
+  registry.npmmirror.com/redux-logger/3.0.6:
+    resolution: {integrity: sha512-JoCIok7bg/XpqA1JqCqXFypuqBbQzGQySrhFzewB7ThcnysTO30l4VCst86AuB9T9tuT03MAA56Jw2PNhRSNCg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-logger/-/redux-logger-3.0.6.tgz}
+    name: redux-logger
+    version: 3.0.6
+    dependencies:
+      deep-diff: registry.npmmirror.com/deep-diff/0.3.8
+    dev: false
+
+  registry.npmmirror.com/redux-persist/6.0.0_react@18.2.0:
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-persist/-/redux-persist-6.0.0.tgz}
+    id: registry.npmmirror.com/redux-persist/6.0.0
+    name: redux-persist
+    version: 6.0.0
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: registry.npmmirror.com/react/18.2.0
+    dev: false
 
   registry.npmmirror.com/redux-thunk/2.4.2_redux@4.2.0:
     resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-thunk/-/redux-thunk-2.4.2.tgz}

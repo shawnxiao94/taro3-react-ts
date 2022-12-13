@@ -30,6 +30,13 @@
     //已定义但是没有使用，"scope" is defined but never used
     "vue/no-unused-vars": 0,
     "@typescript-eslint/no-non-null-assertion": "off", // 允许使用非空操作符
+    // 允许在 .js 和 .jsx 文件中使用  jsx
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // jsx > 紧跟着属性
+    "react/jsx-closing-bracket-location": [1, "after-props"],
+    // 不区分是否是 无状态组件
+    "react/prefer-stateless-function": 0,
+
     /**
      * 最佳实践
      */

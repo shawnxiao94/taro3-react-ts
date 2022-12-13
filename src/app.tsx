@@ -2,7 +2,10 @@ import { Component, PropsWithChildren } from 'react'
 import './app.scss'
 
 import { Provider } from 'react-redux'
-import store from '@/store/index'
+import store, { persistor } from '@/store'
+// PersistGate的作用是向下分发persistStore对象；
+import { PersistGate } from 'redux-persist/lib/integration/react'
+
 // import log from '@/utils/log'
 
 class App extends Component<PropsWithChildren> {
@@ -16,7 +19,13 @@ class App extends Component<PropsWithChildren> {
   // }
 
   render() {
-    return <Provider store={store}>{this.props.children}</Provider>
+    return (
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          {this.props.children}
+        </PersistGate>
+      </Provider>
+    )
   }
 }
 
