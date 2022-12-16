@@ -11,6 +11,8 @@ const Index: FC = () => {
     lineJoin: 'round' // 线条交汇处圆角
   }
   const canvasRef: any = useRef<HTMLInputElement>(null)
+  // 如果是原生微信小程序则使用wx.createCanvasContext进行创建（2.9.0）之后的库不支持
+  // 如果是uni-app则需要使用uni.createCanvasContext进行上下文创建
   let cxtRef: any = useRef(null)
   // 保存上次绘制的 坐标及偏移量
   const clientRef = useRef({
@@ -25,13 +27,12 @@ const Index: FC = () => {
   // 初始化
   const init = event => {
     // 获取偏移量及坐标
-    const { offsetX, offsetY, pageX, pageY } = mobileStatus ? event.changedTouches[0] : event
-
+    const { offsetX, offsetY, clientX, clientY } = mobileStatus ? event.changedTouches[0] : event
     // 修改上次的偏移量及坐标
     clientRef.current.offsetX = offsetX
     clientRef.current.offsetY = offsetY
-    clientRef.current.endX = pageX
-    clientRef.current.endY = pageY
+    clientRef.current.endX = clientX - canvasRef.current.offsetLeft
+    clientRef.current.endY = clientY - canvasRef.current.offsetTop
 
     // 清除以上一次 beginPath 之后的所有路径，进行绘制
     cxtRef.beginPath()
@@ -48,13 +49,13 @@ const Index: FC = () => {
   // 绘制
   const draw = event => {
     // 获取当前坐标点位
-    const { pageX, pageY } = mobileStatus ? event.changedTouches[0] : event
+    const { clientX, clientY } = mobileStatus ? event.changedTouches[0] : event
     // 修改最后一次绘制的坐标点
-    clientRef.current.endX = pageX
-    clientRef.current.endY = pageY
+    clientRef.current.endX = clientX - canvasRef.current.offsetLeft
+    clientRef.current.endY = clientY - canvasRef.current.offsetTop
 
     // 根据坐标点位移动添加线条
-    cxtRef.lineTo(pageX, pageY)
+    cxtRef.lineTo(clientX - canvasRef.current.offsetLeft, clientY - canvasRef.current.offsetTop)
 
     // 绘制
     cxtRef.stroke()
@@ -88,7 +89,7 @@ const Index: FC = () => {
     canvasRef.current.addEventListener(mobileStatus ? 'touchstart' : 'mousedown', init)
     // 创建鼠标/手势 弹起/离开 监听器
     canvasRef.current.addEventListener(mobileStatus ? 'touchend' : 'mouseup', closeDraw)
-  }, [])
+  }, [config])
 
   // 取消-清空画布
   const handleCancel = useCallback(() => {
