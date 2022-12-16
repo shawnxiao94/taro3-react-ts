@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 
-const log = Taro.getRealtimeLogManager()
+const log = Taro.getRealtimeLogManager() // 该方法只支持微信小程序，h5,native不支持
 const isDev = process.env.NODE_ENV === 'development'
 
 export default {

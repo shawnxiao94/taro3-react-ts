@@ -15,9 +15,10 @@ class App extends Component<PropsWithChildren> {
   componentDidShow() {}
 
   componentDidHide() {}
-  // componentDidCatchError(e: string) {
-  //   log.error(e)
-  // }
+  componentDidCatchError(e: string) {
+    // log.error(e)
+    console.log('componentDidCatchError', e)
+  }
 
   render() {
     return (

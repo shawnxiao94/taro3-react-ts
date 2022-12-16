@@ -13,6 +13,10 @@ import TabBar from '@/components/TabBar'
 
 import { setTabBar } from '@/store/tabBar'
 
+import UntrustedComponent from './components/UntrustedComponent'
+import ErrorBoundary from '@/components/ErrorBoundary'
+import DigitalSignature from '@/components/DigitalSignature'
+
 // 注意函数命名得为首字母大写
 const Index = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -54,7 +58,11 @@ const Index = () => {
       <View className='skeleton'>
         <View className='mainBox'>
           <View className='box skeleton-rect'>
-            <Text>hello world!</Text>
+            <Text>hello world! 签字签名</Text>
+            <DigitalSignature></DigitalSignature>
+            <ErrorBoundary>
+              <UntrustedComponent />
+            </ErrorBoundary>
             <Button onClick={handleClick}>dispatch改变数据</Button>
             <Button onClick={handleGetUserInfo}>dispatch获取异步接口数据</Button>
             渲染数据：
