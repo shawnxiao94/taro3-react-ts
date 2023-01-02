@@ -14,34 +14,6 @@ const Skeleton: FC<SkeletonProps> = props => {
   const time = useRef(new Date().getTime())
 
   /**
-   * 本地延迟模拟
-   */
-  useEffect(() => {
-    setTimeout(() => {
-      setLoadingTest(false)
-    }, 2000)
-  }, [])
-
-  /**
-   * 等待父页面渲染后获取生成骨架屏
-   */
-  Taro.eventCenter.once(Taro?.Current?.router?.onReady as any, () => {
-    initSkeleton()
-  })
-
-  /**
-   * 初始化请求
-   */
-  const initSkeleton = () => {
-    console.log('process.env.TARO_ENV', process.env.APP_API)
-    getGraphList(selector, `${selector}-radius`).then((res: any) => {
-      setRadiusList(res)
-    })
-    getGraphList(selector, `${selector}-rect`).then((res: any) => {
-      setRectList(res)
-    })
-  }
-  /**
    * 选择器获取节点
    */
   const getGraphList = (ancestor, descendant) => {
@@ -63,6 +35,35 @@ const Skeleton: FC<SkeletonProps> = props => {
       }
     })
   }
+
+  /**
+   * 初始化请求
+   */
+  const initSkeleton = () => {
+    console.log('process.env.TARO_ENV', process.env.APP_API)
+    getGraphList(selector, `${selector}-radius`).then((res: any) => {
+      setRadiusList(res)
+    })
+    getGraphList(selector, `${selector}-rect`).then((res: any) => {
+      setRectList(res)
+    })
+  }
+
+  /**
+   * 本地延迟模拟
+   */
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingTest(false)
+    }, 3000)
+  }, [])
+
+  /**
+   * 等待父页面渲染后获取生成骨架屏
+   */
+  Taro.eventCenter.once(Taro?.Current?.router?.onReady as any, () => {
+    initSkeleton()
+  })
 
   return (
     <View>

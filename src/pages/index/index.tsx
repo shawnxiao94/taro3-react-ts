@@ -1,81 +1,53 @@
-import { View, Text, Button } from '@tarojs/components'
 // 1.使用taro自带的生命周期函数
-import { useDidShow } from '@tarojs/taro'
-import './index.scss'
-
-import Skeleton from '@/components/Skeleton'
-import { useEffect, useState } from 'react'
-
-import { useSelector, useDispatch } from 'react-redux'
-import { changeVal, loadUserInfo } from '@/store/user'
-
+import Taro, { useDidShow } from '@tarojs/taro'
+import { useEffect } from 'react'
+import { View } from '@tarojs/components'
+import { useAppDispatch } from '@/store'
 import TabBar from '@/components/TabBar'
-
 import { setTabBar } from '@/store/tabBar'
-
-import UntrustedComponent from './components/UntrustedComponent'
-import ErrorBoundary from '@/components/ErrorBoundary'
-import DigitalSignature from '@/components/DigitalSignature'
+import Navigation from './components/Navigation'
+import Title from './components/Title'
+import HotBanner from './components/HotBanner'
+import ExchangeList from './components/ExchangeList'
+import styles from './index.module.scss'
 
 // 注意函数命名得为首字母大写
 const Index = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [loading, setLoading] = useState<boolean>(false)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   // 通过useDispatch 派发事件
-  // 修改current为对应tabbar值，my页面索引为1
+  // 修改current为对应tabBar值
   dispatch(setTabBar(0))
-  // 使用state中的数据
-  const sortList = useSelector((state: any) => state.user.sortList)
-  const handleGetUserInfo = () => {
-    // 触发store中action以更新数据
-    dispatch(loadUserInfo() as any)
-  }
-  const handleClick = () => {
-    // 触发store中action以更新数据
-    dispatch(
-      changeVal([
-        { label: '家具类', value: '家具类' },
-        { label: '食品类', value: '食品类' }
-      ])
-    )
-  }
-
+  Taro.showLoading({
+    title: '加载中'
+  })
   useDidShow(() => {
     console.log('页面展示时的回调 ')
+    Taro.hideLoading()
   })
 
   useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
+    setTimeout(() => {}, 3000)
   }, [])
+
   return (
-    <View className='index'>
-      <Skeleton selector='skeleton' loading={loading} />
-      <View className='skeleton'>
-        <View className='mainBox'>
-          <View className='box skeleton-rect'>
-            <Text>hello world! 签字签名</Text>
-            <DigitalSignature></DigitalSignature>
-            <ErrorBoundary>
-              <UntrustedComponent />
-            </ErrorBoundary>
-            <Button onClick={handleClick}>dispatch改变数据</Button>
-            <Button onClick={handleGetUserInfo}>dispatch获取异步接口数据</Button>
-            渲染数据：
-            <ul>
-              {sortList.map(el => (
-                <li key={el.value}>{el.label}</li>
-              ))}
-            </ul>
+    <>
+      <View className={styles['study-container']}>
+        <View className={styles['study-banner']}>
+          <View className={styles['slogan']}>
+            <View>
+              <View className={styles['title']}>Hey Guys</View>come to reading !
+            </View>
+            <View className={styles['button']}>Let's start</View>
           </View>
         </View>
+        <Navigation />
+        <Title link='/pages/article/list/index'>热门文章</Title>
+        <HotBanner></HotBanner>
+        <Title link='/pages/exchange/list/index'>热门问答</Title>
+        <ExchangeList></ExchangeList>
       </View>
       <TabBar></TabBar>
-    </View>
+    </>
   )
 }
 

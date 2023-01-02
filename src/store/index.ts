@@ -8,8 +8,9 @@ import storage from 'redux-persist/lib/storage/session' // 会话存储
 
 // 多个Slice的引入
 import tabBarSlice from './tabBar'
+import chatRoomSlice from './chatRoom'
 import userSlice from './user'
-import demoSlice from './demo'
+import forumSlice from './forum'
 
 // 配置要存储的Slice；
 const persistConfig = {
@@ -22,8 +23,9 @@ const persistConfig = {
 // 合并多个Slice
 const rootReducer = combineReducers({
   tabBar: tabBarSlice,
+  chatRoom: chatRoomSlice,
   user: userSlice,
-  demo: demoSlice
+  forum: forumSlice
 })
 
 const myPersistReducer = persistReducer(persistConfig, rootReducer)
@@ -36,13 +38,6 @@ const store = configureStore({
     getDefaultMiddleware({ serializableCheck: false }).concat(logger),
   devTools: true
 })
-
-// const store = configureStore({
-//   reducer: {
-//     user: userSlice,
-//     demo: demoSlice
-//   }
-// })
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,

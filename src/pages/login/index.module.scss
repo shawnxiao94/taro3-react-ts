@@ -1,0 +1,38 @@
+.textCenter {
+  text-align: center;
+}
+
+.header {
+  width: 160px;
+  height: 160px;
+}
+
+.headerWap {
+  margin-top: 123px;
+}
+.text1 {
+  margin-top: 48px;
+  color: #01110e;
+}
+.text2 {
+  margin-top: 10px;
+  color: #535353;
+}
+.button {
+  width: 386px;
+  height: 88px;
+  border: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff, darkgreen);
+  background-size: auto;
+  color: #fff;
+  // font-size: 26px;
+}
+.text {
+  position: relative;
+  font-size: 28px;
+  color: #fff;
+}

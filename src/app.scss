@@ -1,7 +1,7 @@
 @import '@/assets/styles/base.scss';
 
 page {
-  height: 100%;
+  min-height: 100%;
 }
 .at-tabs__item--active {
   color: $primary-color;

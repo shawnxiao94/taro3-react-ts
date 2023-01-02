@@ -1,128 +1,97 @@
+import { FC, useState, useCallback } from 'react'
 import Taro from '@tarojs/taro'
-import { FC, useState } from 'react'
-import { View, Input } from '@tarojs/components'
-import { AtIcon, AtButton, AtToast } from 'taro-ui'
-import CTitle from '../../components/CTitle'
-// import api from '../../services/api'
-import './index.scss'
+import { View, Image, Button, Text } from '@tarojs/components'
+// import tools from '@/utils/tools'
+// import { toLogin } from '@/apis/Login'
+import defaultHeaderPng from '@/assets/images/login/default_header.png'
+import styles from './index.module.scss'
+import ViewContainer from '@/components/ViewContainer'
+import { formatTimeDate, formatTimeTime } from '@/utils'
 
-type InputType = 'phone' | 'password'
+// type InputType = 'phone' | 'password'
 
-const Page: FC = () => {
-  // const { showLoading, tip, showTip } = this.state
-  const [showLoading, setShowLoading] = useState<boolean>(false)
-  const [showTip, setShowTip] = useState<boolean>(false)
-  const [phone, setPhone] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const [tip, setTip] = useState<string>('')
-
-  function useLoginStatus(res) {
-    const { code } = res.data
-    let Tip = '登录成功'
-    if (code !== 200) {
-      Tip = res.data.msg || '登录失败'
+const Index: FC = () => {
+  const { certifiedStatus = 2 } = Taro.getStorageSync('userInfo') || {}
+  const [refuse, setRefuse] = useState<any>({})
+  const beginBind = useCallback(e => {
+    console.log('e', e)
+    if (e?.detail?.iv) {
+      // request({ method: 'POST', tartget: 'userWechatBind', data: e.detail }).then(data => {
+      //   if (data.success) {
+      //     saveToken(data.model)
+      //     Taro.reLaunch({ url: '/pages/index/index' })
+      //   }
+      // })
     }
-    setShowLoading(false)
-    setShowTip(true)
-    setTip(Tip)
-    setTimeout(() => {
-      setShowTip(false)
-    }, 2000)
-    if (code === 200) {
-      // 缓存数据
-      Taro.setStorageSync('userInfo', res.data)
-      Taro.setStorageSync('userId', res.data.account.id)
-      Taro.navigateTo({
-        url: '/pages/index/index'
-      })
-    }
-  }
+  }, [])
 
-  function login() {
-    if (!phone) {
-      this.setState({
-        showTip: true,
-        tip: '请输入手机号'
-      })
-      return
-    }
-    if (!password) {
-      this.setState({
-        showTip: true,
-        tip: '请输入密码'
-      })
-      return
-    }
-    setShowLoading(true)
-    console.log('提交登录', phone, password)
-    setTimeout(() => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useLoginStatus({
-        code: -1,
-        data: {
-          msg: 'fail'
-        }
-      })
-    }, 3000)
-    // api
-    //   .get('/login/cellphone', {
-    //     phone,
-    //     password
-    //   })
-    //   .then(res => {
-    //     useLoginStatus(res)
-    //   })
-  }
-
-  function handleChange(type: InputType, event) {
-    const { value } = event.detail
-    if (type === 'phone') {
-      setPhone(value)
-    } else {
-      setPassword(value)
-    }
-  }
-
+  const authFn = useCallback(() => {
+    Taro.navigateTo({
+      url: '/pages/login/realNameAuthentication/index'
+    })
+  }, [])
   return (
-    <View className='login_container'>
-      <CTitle isFixed={false} />
-      <View className='login_content'>
-        <View className='login_content__item'>
-          <AtIcon value='iphone' size='24' color='#ccc'></AtIcon>
-          <Input
-            type='text'
-            placeholder='手机号'
-            className='login_content__input'
-            onInput={(e): void => {
-              handleChange('phone', e)
-            }}
-          />
-        </View>
-        <View className='login_content__item'>
-          <AtIcon value='lock' size='24' color='#ccc'></AtIcon>
-          <Input
-            type='text'
-            password
-            placeholder='密码'
-            className='login_content__input'
-            onInput={(e): void => {
-              handleChange('password', e)
-            }}
-          />
-        </View>
-        <AtButton className='login_content__btn' onClick={() => login()}>
-          登录
-        </AtButton>
+    <ViewContainer className='columnCenter'>
+      <View className={`${styles.textCenter} ${styles.headerWap}`}>
+        <Image className={styles.header} src={defaultHeaderPng} />
       </View>
-      <AtToast
-        isOpened={showLoading}
-        text='登录中'
-        status='loading'
-        hasMask
-        duration={30000000}></AtToast>
-      <AtToast isOpened={showTip} text={tip} hasMask duration={2000}></AtToast>
-    </View>
+      <>
+        {certifiedStatus === 2 ? (
+          // '未注册'
+          <>
+            <View className={`${styles.textCenter} ${styles.text1}`}>您还未登录</View>
+            <View className={`${styles.textCenter} ${styles.text2}`}>请先完成授权并登录</View>
+          </>
+        ) : certifiedStatus === 0 ? (
+          // '未通过'
+          <>
+            <View className={`${styles.textCenter} ${styles.text1}`}>您的认证未通过</View>
+            <View className={`${styles.textCenter} ${styles.text2}`}>请先重新认证</View>
+            <View className={`${styles.textCenter} ${styles.text2}`}>
+              驳回时间：{formatTimeDate(refuse?.createTime)} {formatTimeTime(refuse?.createTime)}
+            </View>
+            <View className={`${styles.textCenter} ${styles.text2}`}>
+              驳回理由：{refuse?.rejectionReason}
+            </View>
+          </>
+        ) : certifiedStatus === 3 ? (
+          // 3 '已注册'
+          <>
+            <View className={`${styles.textCenter} ${styles.text1}`}>您还未认证</View>
+            <View className={`${styles.textCenter} ${styles.text2}`}>请先完成认证</View>
+          </>
+        ) : certifiedStatus === 4 ? (
+          <>
+            <View className={`${styles.textCenter} ${styles.text1}`}>您已提交认证</View>
+            <View className={`${styles.textCenter} ${styles.text2}`}>请耐心等候</View>
+          </>
+        ) : null}
+      </>
+      <>
+        {certifiedStatus === 2 ? (
+          // '未注册'
+          <Button
+            className={styles.button}
+            plain
+            hover-class='none'
+            open-type='getPhoneNumber'
+            onGetPhoneNumber={beginBind}>
+            <Text className={styles.text}>微信一键登录</Text>
+          </Button>
+        ) : certifiedStatus === 0 ? (
+          // 0 '未通过'
+          <Button className={styles.button} plain hover-class='none' onClick={authFn}>
+            <Text className={styles.text}>认证</Text>
+          </Button>
+        ) : certifiedStatus === 3 ? (
+          // 3 '已注册',4 '待认证'
+          <Button className={styles.button} plain hover-class='none' onClick={authFn}>
+            <Text className={styles.text}>认证</Text>
+          </Button>
+        ) : certifiedStatus === 4 ? null : null}
+      </>
+    </ViewContainer>
   )
 }
 
-export default Page
+export default Index

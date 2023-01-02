@@ -1,0 +1,11 @@
+.tabBar-cnt {
+  width: 100%;
+  height: 10vh;
+  overflow: hidden;
+  :global {
+    .at-tab-bar {
+      height: 10vh;
+      padding-top: 0;
+    }
+  }
+}

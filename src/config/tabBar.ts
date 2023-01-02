@@ -1,10 +1,6 @@
 export default [
-  {
-    text: '首页',
-    pagePath: 'pages/index/index'
-  },
-  {
-    text: '我的',
-    pagePath: 'pages/my/index'
-  }
+  { title: '首页', iconType: 'bullet-list', path: 'pages/index/index' },
+  { title: '聊天室', iconType: 'message', path: 'pages/contacts/index' },
+  { title: '论坛', iconType: 'bookmark', path: 'pages/forumList/index' },
+  { title: '个人中心', iconType: 'user', path: 'pages/dashboard/index' }
 ]

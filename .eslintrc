@@ -8,6 +8,7 @@
     "wx": true
   },
   "extends": ["taro/react"],
+  "plugins": ["react-hooks"],
   "rules": {
     "react/jsx-uses-react": 2,
     "react/react-in-jsx-scope": "off",
@@ -36,6 +37,8 @@
     "react/jsx-closing-bracket-location": [1, "after-props"],
     // 不区分是否是 无状态组件
     "react/prefer-stateless-function": 0,
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
 
     /**
      * 最佳实践

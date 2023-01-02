@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
 import { objectToString } from './index'
 
+const tokenKey = 'token'
+
 const tools = {
   /**
    * 网络请求
@@ -15,16 +17,28 @@ const tools = {
   }) => {
     const { url = '', params = {}, method = 'GET', ...rest } = opts
     return new Promise((resolve, reject) => {
+      const header = {
+        'content-type': 'application/json'
+      }
+      const token = tools.getToken()
+      if (token) {
+        header['X-Token'] = token
+      }
       Taro.request({
         url,
         data: params,
         method,
+        header,
         ...rest // 剩余参数
       }).then(res => {
         const { data } = res
-        if (data?.result === 0) {
+        console.log('tools', res)
+        if (data?.code === 200) {
           // 成功
           resolve(data)
+        } else if (data?.code === 401) {
+          tools.showToast('登录失效！')
+          reject(res)
         } else {
           // 不是预期的结果
           reject(res)
@@ -129,6 +143,19 @@ const tools = {
     } catch (err) {
       console.log(err)
     }
+  },
+  setToken: (token: string) => {
+    return Taro.setStorageSync(tokenKey, token)
+  },
+  getToken: () => {
+    const token = Taro.getStorageSync(tokenKey)
+    if (!token) {
+      return ''
+    }
+    return token
+  },
+  removeToken: () => {
+    return Taro.removeStorageSync(tokenKey)
   }
 }
 
