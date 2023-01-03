@@ -1,96 +1,94 @@
-import { FC, useState, useCallback } from 'react'
-import Taro from '@tarojs/taro'
-import { View, Image, Button, Text } from '@tarojs/components'
-// import tools from '@/utils/tools'
+import { FC, useState } from 'react'
+import { View, Button, Input } from '@tarojs/components'
+import tools from '@/utils/tools'
 // import { toLogin } from '@/apis/Login'
-import defaultHeaderPng from '@/assets/images/login/default_header.png'
-import styles from './index.module.scss'
-import ViewContainer from '@/components/ViewContainer'
-import { formatTimeDate, formatTimeTime } from '@/utils'
+import { debounce } from '@/utils'
+import './index.scss'
 
-// type InputType = 'phone' | 'password'
+const mockRequest = async ({ userPhone, password, nickName }) => {
+  const res: any = {
+    msg: '成功',
+    data: {}
+  }
+  return new Promise(resolve => {
+    setTimeout(() => {
+      res.data = {
+        id: 111,
+        userPhone,
+        password,
+        nickName
+      }
+      resolve(res)
+    }, 1000)
+  })
+}
 
 const Index: FC = () => {
-  const { certifiedStatus = 2 } = Taro.getStorageSync('userInfo') || {}
-  const [refuse, setRefuse] = useState<any>({})
-  const beginBind = useCallback(e => {
-    console.log('e', e)
-    if (e?.detail?.iv) {
-      // request({ method: 'POST', tartget: 'userWechatBind', data: e.detail }).then(data => {
-      //   if (data.success) {
-      //     saveToken(data.model)
-      //     Taro.reLaunch({ url: '/pages/index/index' })
-      //   }
-      // })
-    }
-  }, [])
+  const [nickName, setNickName] = useState<string>('')
+  const [userPhone, setUserPhone] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
-  const authFn = useCallback(() => {
-    Taro.navigateTo({
-      url: '/pages/login/realNameAuthentication/index'
+  const onLogin = async () => {
+    if (!userPhone || !password || !nickName) {
+      return tools.showToast('所有内容必须填写完整～')
+    }
+    const reg = /^1[3-9]\d{9}$/
+    if (!reg.test(userPhone)) {
+      return tools.showToast('请填写正确手机号～')
+    }
+    tools.showLoading()
+    const res: any = await mockRequest({ userPhone, password, nickName })
+    console.log('res', res)
+    tools.hideLoading()
+    tools.showToast({
+      title: res.msg
     })
-  }, [])
+  }
+
+  const handleInput = debounce((e, type) => {
+    switch (type) {
+      case 'nickName':
+        setNickName(e.detail.value)
+        break
+      case 'userPhone':
+        setUserPhone(e.detail.value)
+        break
+      case 'password':
+        setPassword(e.detail.value)
+        break
+    }
+  }, 300)
+
   return (
-    <ViewContainer className='columnCenter'>
-      <View className={`${styles.textCenter} ${styles.headerWap}`}>
-        <Image className={styles.header} src={defaultHeaderPng} />
+    <View className='login-container'>
+      <View className='login-top'>
+        <View>你好，</View>
+        <View>欢迎登录</View>
       </View>
-      <>
-        {certifiedStatus === 2 ? (
-          // '未注册'
-          <>
-            <View className={`${styles.textCenter} ${styles.text1}`}>您还未登录</View>
-            <View className={`${styles.textCenter} ${styles.text2}`}>请先完成授权并登录</View>
-          </>
-        ) : certifiedStatus === 0 ? (
-          // '未通过'
-          <>
-            <View className={`${styles.textCenter} ${styles.text1}`}>您的认证未通过</View>
-            <View className={`${styles.textCenter} ${styles.text2}`}>请先重新认证</View>
-            <View className={`${styles.textCenter} ${styles.text2}`}>
-              驳回时间：{formatTimeDate(refuse?.createTime)} {formatTimeTime(refuse?.createTime)}
-            </View>
-            <View className={`${styles.textCenter} ${styles.text2}`}>
-              驳回理由：{refuse?.rejectionReason}
-            </View>
-          </>
-        ) : certifiedStatus === 3 ? (
-          // 3 '已注册'
-          <>
-            <View className={`${styles.textCenter} ${styles.text1}`}>您还未认证</View>
-            <View className={`${styles.textCenter} ${styles.text2}`}>请先完成认证</View>
-          </>
-        ) : certifiedStatus === 4 ? (
-          <>
-            <View className={`${styles.textCenter} ${styles.text1}`}>您已提交认证</View>
-            <View className={`${styles.textCenter} ${styles.text2}`}>请耐心等候</View>
-          </>
-        ) : null}
-      </>
-      <>
-        {certifiedStatus === 2 ? (
-          // '未注册'
-          <Button
-            className={styles.button}
-            plain
-            hover-class='none'
-            open-type='getPhoneNumber'
-            onGetPhoneNumber={beginBind}>
-            <Text className={styles.text}>微信一键登录</Text>
-          </Button>
-        ) : certifiedStatus === 0 ? (
-          // 0 '未通过'
-          <Button className={styles.button} plain hover-class='none' onClick={authFn}>
-            <Text className={styles.text}>认证</Text>
-          </Button>
-        ) : certifiedStatus === 3 ? (
-          // 3 '已注册',4 '待认证'
-          <Button className={styles.button} plain hover-class='none' onClick={authFn}>
-            <Text className={styles.text}>认证</Text>
-          </Button>
-        ) : certifiedStatus === 4 ? null : null}
-      </>
-    </ViewContainer>
+      <View className='login-box'>
+        <Input
+          type='text'
+          className='nick-name input'
+          placeholder='请输入昵称'
+          placeholderClass='placeholder-class'
+          onInput={(e: any) => handleInput(e, 'nickName')}></Input>
+        <Input
+          type='text'
+          className='phone input'
+          placeholder='请输入手机号'
+          placeholderClass='placeholder-class'
+          onInput={(e: any) => handleInput(e, 'userPhone')}></Input>
+        <Input
+          type='password'
+          className='password input'
+          placeholder='请输入密码'
+          placeholderClass='placeholder-class'
+          onInput={(e: any) => handleInput(e, 'password')}></Input>
+      </View>
+      <Button className='login-btn' onClick={onLogin}>
+        登录
+      </Button>
+    </View>
   )
 }
 

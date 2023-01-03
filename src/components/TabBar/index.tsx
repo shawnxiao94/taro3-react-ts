@@ -23,7 +23,8 @@ const CustomTabBar: React.FC = () => {
     dispatch(setTabBar(index))
     setCurrent(index)
     const url = '/' + tabBarConfig[index].path
-    Taro.switchTab({ url })
+    // switchTab在微信上必须跳转到tabBar里设置的路径， navigateTo 在微信上打卡不能超过10个，故此用redirectTo
+    Taro.redirectTo({ url })
   }
   return (
     <View className={styles['tabBar-cnt']}>

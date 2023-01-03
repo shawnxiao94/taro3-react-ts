@@ -10,7 +10,7 @@ function Index() {
       </View>
       <View className='wrap'>
         <Image className='img' src='http://cdn.algbb.cn/dashboard/recommend2.png' />
-        <View className='slogan'>重庆水库</View>
+        <View className='slogan'>xx社区</View>
       </View>
     </View>
   )

@@ -51,7 +51,7 @@ const tools = {
    * @param param
    * @returns
    */
-  showLoading: (param: string | any) => {
+  showLoading: (param?: string | any) => {
     let dptOpts = {
       title: '加载中',
       mask: true // 防止触摸穿透
@@ -66,11 +66,14 @@ const tools = {
     }
     return Taro.showLoading(dptOpts)
   },
+  hideLoading: () => {
+    Taro.hideLoading()
+  },
   /**
    * 页面提示
    * @param param
    */
-  showToast: param => {
+  showToast: (param?: string | any) => {
     let dptOpts: any = {
       title: '温馨提示', // 提示内容
       icon: 'none',
